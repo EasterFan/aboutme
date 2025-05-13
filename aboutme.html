@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-image: radial-gradient(circle, #e0e0e0 1px, rgba(0,0,0,0) 1px);
+            background-image: radial-gradient(circle, #e0e0e0 1px, rgba(0, 0, 0, 0) 1px);
             background-size: 20px 20px;
             position: relative;
             overflow-x: hidden;
@@ -67,7 +68,7 @@
             margin-bottom: 20px;
             position: relative;
             background: white;
-            box-shadow: 0 0 2px rgba(0,0,0,0.2);
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
         }
 
         /* 头像区域 */
@@ -84,7 +85,7 @@
             margin: 0 auto 15px;
             background: white;
             background-image: linear-gradient(var(--main-color) 2px, transparent 2px),
-                            linear-gradient(90deg, var(--main-color) 2px, transparent 2px);
+                linear-gradient(90deg, var(--main-color) 2px, transparent 2px);
             background-size: 20px 20px;
             overflow: hidden;
         }
@@ -156,7 +157,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 100;
             justify-content: center;
             align-items: center;
@@ -180,6 +181,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -256,55 +258,56 @@
             .container {
                 padding: 10px;
             }
-            
+
             .hand-drawn {
                 padding: 15px;
             }
-            
+
             .avatar {
                 width: 100px;
                 height: 100px;
             }
-            
+
             h1 {
                 font-size: 24px;
             }
-            
+
             .bio {
                 font-size: 16px;
             }
-            
+
             .link-item {
                 padding: 10px 15px;
             }
-            
+
             .link-text {
                 font-size: 14px;
             }
-            
+
             .modal-content {
                 padding: 20px;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- 睡觉的小人 SVG -->
     <svg class="sleeping-person" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <!-- 床 -->
-        <rect x="20" y="120" width="160" height="30" fill="#f5e6d8" stroke="#2d2d2d" stroke-width="2" rx="5"/>
+        <rect x="20" y="120" width="160" height="30" fill="#f5e6d8" stroke="#2d2d2d" stroke-width="2" rx="5" />
         <!-- 枕头 -->
-        <rect x="40" y="110" width="40" height="20" fill="#e8c4c4" stroke="#2d2d2d" stroke-width="2" rx="5"/>
+        <rect x="40" y="110" width="40" height="20" fill="#e8c4c4" stroke="#2d2d2d" stroke-width="2" rx="5" />
         <!-- 被子 -->
-        <path d="M60 120 Q100 100 140 120 L140 150 L60 150 Z" fill="#ffd6d6" stroke="#2d2d2d" stroke-width="2"/>
+        <path d="M60 120 Q100 100 140 120 L140 150 L60 150 Z" fill="#ffd6d6" stroke="#2d2d2d" stroke-width="2" />
         <!-- 小人头部 -->
-        <circle cx="100" cy="90" r="20" fill="#ffecb3" stroke="#2d2d2d" stroke-width="2"/>
+        <circle cx="100" cy="90" r="20" fill="#ffecb3" stroke="#2d2d2d" stroke-width="2" />
         <!-- 眼睛 (闭着的) -->
-        <path d="M90 90 Q95 95 100 90 Q105 95 110 90" fill="none" stroke="#2d2d2d" stroke-width="2"/>
+        <path d="M90 90 Q95 95 100 90 Q105 95 110 90" fill="none" stroke="#2d2d2d" stroke-width="2" />
         <!-- 嘴巴 (睡觉的Zzz) -->
         <text x="100" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#2d2d2d">Z z z</text>
         <!-- 身体 -->
-        <rect x="80" y="110" width="40" height="30" fill="#ffecb3" stroke="#2d2d2d" stroke-width="2" rx="5"/>
+        <rect x="80" y="110" width="40" height="30" fill="#ffecb3" stroke="#2d2d2d" stroke-width="2" rx="5" />
     </svg>
 
     <div class="container">
@@ -315,7 +318,7 @@
                 <img src="logo.png" alt="头像">
             </div>
             <h1>ieasterfan</h1>
-            <p class="bio">开发者 | 交易数据分析 | 内容创作者</p>
+            <p class="bio">90后平成废宅/ Lay 作者/前ThoughtWorks Dev/ 现 Ops/996打工为生/梦想30岁退休的A股资深韭菜/技术分析实践入门中/致力于躺平赚钱</p>
         </div>
 
         <!-- 社交链接 -->
@@ -325,45 +328,45 @@
                     <div class="link-icon">𝕏</div>
                     <div class="link-text">X / Twitter</div>
                 </a>
-                
+
                 <div class="link-item" id="price-btn">
                     <div class="link-icon">💰</div>
                     <div class="link-text">Price</div>
                 </div>
-                
+
                 <div class="link-item" id="work-btn">
                     <div class="link-icon">🤝</div>
                     <div class="link-text">Work With Me</div>
                 </div>
-                
+
                 <div class="link-item" id="works-btn">
                     <div class="link-icon">🖥️</div>
                     <div class="link-text">我的作品</div>
                 </div>
-                
+
                 <a href="https://blog.layhub.top/" class="link-item" target="_blank">
                     <div class="link-icon">📝</div>
                     <div class="link-text">Blog</div>
                 </a>
-                
+
                 <a href="https://github.com/easterfan" class="link-item" target="_blank">
                     <div class="link-icon">💻</div>
                     <div class="link-text">Github</div>
                 </a>
-                
-                <a href="https://github.com/easterfan" class="link-item" target="_blank">
+
+                <a href="#" class="link-item" target="_blank">
                     <div class="link-icon">📕</div>
-                    <div class="link-text">小红书(直播摆摊卖货)</div>
+                    <div class="link-text">小红书(直播摆摊卖货)-装修中，即将开放</div>
                 </a>
-                
-                <a href="https://github.com/easterfan" class="link-item" target="_blank">
+
+                <a href="#" class="link-item" target="_blank">
                     <div class="link-icon">📺</div>
-                    <div class="link-text">Bilibili</div>
+                    <div class="link-text">Bilibili-装修中，即将开放</div>
                 </a>
-                
-                <a href="https://github.com/easterfan" class="link-item" target="_blank">
+
+                <a href="#" class="link-item" target="_blank">
                     <div class="link-icon">▶️</div>
-                    <div class="link-text">Youtube</div>
+                    <div class="link-text">Youtube-装修中，即将开放</div>
                 </a>
             </div>
         </div>
@@ -374,13 +377,13 @@
         <div class="modal-content hand-drawn">
             <button class="close-btn">&times;</button>
             <h2 class="modal-title">我的服务定价</h2>
-            
+
             <div class="product-item">
                 <div class="product-name">MACD指标推送</div>
                 <div class="product-desc">实时推送MACD指标变化，帮助您把握交易时机</div>
                 <div class="price-value">限时免费</div>
             </div>
-            
+
             <div class="product-item">
                 <div class="product-name">A股/港股/美股定制化交易指标编写</div>
                 <div class="product-desc">根据您的交易策略定制专属技术指标</div>
@@ -396,7 +399,8 @@
             <h2 class="modal-title">Work With Me</h2>
             <p>我在X上公开了25年的交易数据，用于测试MACD指标，如果你对这件事感兴趣，请加入我</p>
             <p style="margin-top: 20px;">
-                <a href="https://x.com/ieasterfan" target="_blank" style="color: var(--highlight); text-decoration: underline;">前往X查看详情 →</a>
+                <a href="https://x.com/ieasterfan" target="_blank"
+                    style="color: var(--highlight); text-decoration: underline;">前往X查看详情 →</a>
             </p>
         </div>
     </div>
@@ -406,23 +410,32 @@
         <div class="modal-content hand-drawn">
             <button class="close-btn">&times;</button>
             <h2 class="modal-title">我的作品</h2>
-            
+
             <div class="product-item">
-                <div class="product-name">MACD网页版</div>
+                <div class="product-name">Lay</div>
                 <div class="product-desc">
-                    这是一个基于Web的MACD指标分析工具，提供实时数据可视化分析，帮助交易者更好地理解市场趋势。
+                    这是一个摸鱼插件，每天3点后，从A股5k支股票中，过滤出符合MACD金叉指标的股票，过滤条件是同时满足：
+
+                    1. 市值 > 200亿
+                    2. MACD 日K金叉
+                    3. 当前价格 > MA5 && 当前价格 > MA10
                 </div>
-                <img src="https://via.placeholder.com/600x300?text=MACD+Web+Version" alt="MACD网页版截图" class="product-image">
-                <a href="http://layhub.top" target="_blank" class="product-link">访问网页版</a>
+                <img src="chrome-extension.png" alt="Lay" class="product-image">
+                <a href="http://layhub.top" target="_blank" class="product-link">网页</a>
+                <a href="https://chromewebstore.google.com/detail/lay/fjfeakhnkfdhdlfebhcpggknkjoleaog"
+                    target="_blank" class="product-link">谷歌插件</a>
+                <a href="https://x.com/ieasterfan/highlights"
+                    target="_blank" class="product-link">2025年3月-12月指标测试结果</a>
             </div>
-            
+
             <div class="product-item">
-                <div class="product-name">MACD谷歌浏览器插件版</div>
+                <div class="product-name">todo</div>
                 <div class="product-desc">
-                    这款Chrome扩展程序将MACD指标直接集成到您的浏览器中，让您在任何交易页面都能快速查看MACD分析结果。
+                    正在开发中
                 </div>
-                <img src="https://via.placeholder.com/600x300?text=MACD+Chrome+Extension" alt="MACD插件截图" class="product-image">
-                <a href="https://chromewebstore.google.com/detail/lay/fjfeakhnkfdhdlfebhcpggknkjoleaog?utm_source=item-share-x" target="_blank" class="product-link">安装插件</a>
+                <img src="https://via.placeholder.com/600x300?text=MACD+Chrome+Extension" alt="todo"
+                    class="product-image">
+                <a href="http://layhub.top" target="_blank" class="product-link">点我体验</a>
             </div>
         </div>
     </div>
@@ -471,4 +484,5 @@
         });
     </script>
 </body>
+
 </html>
