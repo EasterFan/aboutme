@@ -317,11 +317,6 @@
                     <div class="link-text">Price</div>
                 </div>
 
-                <div class="link-item" id="work-btn">
-                    <div class="link-icon">🤝</div>
-                    <div class="link-text">Work With Me</div>
-                </div>
-
                 <div class="link-item" id="works-btn">
                     <div class="link-icon">🖥️</div>
                     <div class="link-text">我的作品</div>
@@ -360,31 +355,18 @@
         <div class="modal-content hand-drawn">
             <button class="close-btn">&times;</button>
             <h2 class="modal-title">我的服务定价</h2>
-
+            
             <div class="product-item">
                 <div class="product-name">MACD指标推送</div>
                 <div class="product-desc">实时推送MACD指标变化，帮助您把握交易时机</div>
                 <div class="price-value">限时免费</div>
             </div>
-
+            
             <div class="product-item">
                 <div class="product-name">A股/港股/美股定制化交易指标编写</div>
                 <div class="product-desc">根据您的交易策略定制专属技术指标</div>
                 <div class="price-value">价格待定 (根据需求评估)</div>
             </div>
-        </div>
-    </div>
-
-    <!-- Work With Me 弹窗 -->
-    <div id="work-modal" class="modal">
-        <div class="modal-content hand-drawn">
-            <button class="close-btn">&times;</button>
-            <h2 class="modal-title">Work With Me</h2>
-            <p>我在X上公开了25年的交易数据，用于测试MACD指标，如果你对这件事感兴趣，请加入我</p>
-            <p style="margin-top: 20px;">
-                <a href="https://x.com/ieasterfan" target="_blank"
-                    style="color: var(--highlight); text-decoration: underline;">前往X查看详情 →</a>
-            </p>
         </div>
     </div>
 
@@ -426,19 +408,13 @@
     <script>
         // 弹窗控制
         const priceBtn = document.getElementById('price-btn');
-        const workBtn = document.getElementById('work-btn');
         const worksBtn = document.getElementById('works-btn');
         const priceModal = document.getElementById('price-modal');
-        const workModal = document.getElementById('work-modal');
         const worksModal = document.getElementById('works-modal');
         const closeBtns = document.querySelectorAll('.close-btn');
 
         priceBtn.addEventListener('click', () => {
             priceModal.style.display = 'flex';
-        });
-
-        workBtn.addEventListener('click', () => {
-            workModal.style.display = 'flex';
         });
 
         worksBtn.addEventListener('click', () => {
@@ -448,7 +424,6 @@
         closeBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 priceModal.style.display = 'none';
-                workModal.style.display = 'none';
                 worksModal.style.display = 'none';
             });
         });
@@ -457,9 +432,6 @@
         window.addEventListener('click', (e) => {
             if (e.target === priceModal) {
                 priceModal.style.display = 'none';
-            }
-            if (e.target === workModal) {
-                workModal.style.display = 'none';
             }
             if (e.target === worksModal) {
                 worksModal.style.display = 'none';
