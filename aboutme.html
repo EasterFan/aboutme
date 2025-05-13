@@ -167,10 +167,12 @@
             padding: 30px;
             border-radius: 15px;
             border: 3px solid var(--main-color);
-            max-width: 500px;
+            max-width: 600px;
             width: 90%;
             position: relative;
             animation: modalAppear 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         @keyframes modalAppear {
@@ -199,29 +201,54 @@
             color: var(--highlight);
         }
 
-        .price-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
+        .product-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
             border-bottom: 1px dashed #ddd;
         }
 
-        .price-item:last-child {
+        .product-item:last-child {
             border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
-        .price-name {
+        .product-name {
             font-weight: bold;
-            font-size: 18px;
-        }
-
-        .price-desc {
-            margin: 5px 0;
-            color: #555;
-        }
-
-        .price-value {
-            color: var(--highlight);
             font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            padding: 10px;
+        }
+
+        .product-desc {
+            margin: 10px 0;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .product-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: var(--highlight);
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .product-link:hover {
+            transform: scale(1.05);
         }
 
         /* 响应式调整 */
@@ -253,6 +280,10 @@
             
             .link-text {
                 font-size: 14px;
+            }
+            
+            .modal-content {
+                padding: 20px;
             }
         }
     </style>
@@ -305,15 +336,10 @@
                     <div class="link-text">Work With Me</div>
                 </div>
                 
-                <a href="http://layhub.top" class="link-item" target="_blank">
+                <div class="link-item" id="works-btn">
                     <div class="link-icon">🖥️</div>
-                    <div class="link-text">MACD网页版</div>
-                </a>
-                
-                <a href="https://chromewebstore.google.com/detail/lay/fjfeakhnkfdhdlfebhcpggknkjoleaog?utm_source=item-share-x" class="link-item" target="_blank">
-                    <div class="link-icon">🔌</div>
-                    <div class="link-text">MACD谷歌浏览器插件版</div>
-                </a>
+                    <div class="link-text">我的作品</div>
+                </div>
                 
                 <a href="https://blog.layhub.top/" class="link-item" target="_blank">
                     <div class="link-icon">📝</div>
@@ -349,15 +375,15 @@
             <button class="close-btn">&times;</button>
             <h2 class="modal-title">我的服务定价</h2>
             
-            <div class="price-item">
-                <div class="price-name">MACD指标推送</div>
-                <div class="price-desc">实时推送MACD指标变化，帮助您把握交易时机</div>
+            <div class="product-item">
+                <div class="product-name">MACD指标推送</div>
+                <div class="product-desc">实时推送MACD指标变化，帮助您把握交易时机</div>
                 <div class="price-value">限时免费</div>
             </div>
             
-            <div class="price-item">
-                <div class="price-name">A股/港股/美股定制化交易指标编写</div>
-                <div class="price-desc">根据您的交易策略定制专属技术指标</div>
+            <div class="product-item">
+                <div class="product-name">A股/港股/美股定制化交易指标编写</div>
+                <div class="product-desc">根据您的交易策略定制专属技术指标</div>
                 <div class="price-value">价格待定 (根据需求评估)</div>
             </div>
         </div>
@@ -375,12 +401,40 @@
         </div>
     </div>
 
+    <!-- 作品弹窗 -->
+    <div id="works-modal" class="modal">
+        <div class="modal-content hand-drawn">
+            <button class="close-btn">&times;</button>
+            <h2 class="modal-title">我的作品</h2>
+            
+            <div class="product-item">
+                <div class="product-name">MACD网页版</div>
+                <div class="product-desc">
+                    这是一个基于Web的MACD指标分析工具，提供实时数据可视化分析，帮助交易者更好地理解市场趋势。
+                </div>
+                <img src="https://via.placeholder.com/600x300?text=MACD+Web+Version" alt="MACD网页版截图" class="product-image">
+                <a href="http://layhub.top" target="_blank" class="product-link">访问网页版</a>
+            </div>
+            
+            <div class="product-item">
+                <div class="product-name">MACD谷歌浏览器插件版</div>
+                <div class="product-desc">
+                    这款Chrome扩展程序将MACD指标直接集成到您的浏览器中，让您在任何交易页面都能快速查看MACD分析结果。
+                </div>
+                <img src="https://via.placeholder.com/600x300?text=MACD+Chrome+Extension" alt="MACD插件截图" class="product-image">
+                <a href="https://chromewebstore.google.com/detail/lay/fjfeakhnkfdhdlfebhcpggknkjoleaog?utm_source=item-share-x" target="_blank" class="product-link">安装插件</a>
+            </div>
+        </div>
+    </div>
+
     <script>
         // 弹窗控制
         const priceBtn = document.getElementById('price-btn');
         const workBtn = document.getElementById('work-btn');
+        const worksBtn = document.getElementById('works-btn');
         const priceModal = document.getElementById('price-modal');
         const workModal = document.getElementById('work-modal');
+        const worksModal = document.getElementById('works-modal');
         const closeBtns = document.querySelectorAll('.close-btn');
 
         priceBtn.addEventListener('click', () => {
@@ -391,10 +445,15 @@
             workModal.style.display = 'flex';
         });
 
+        worksBtn.addEventListener('click', () => {
+            worksModal.style.display = 'flex';
+        });
+
         closeBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 priceModal.style.display = 'none';
                 workModal.style.display = 'none';
+                worksModal.style.display = 'none';
             });
         });
 
@@ -405,6 +464,9 @@
             }
             if (e.target === workModal) {
                 workModal.style.display = 'none';
+            }
+            if (e.target === worksModal) {
+                worksModal.style.display = 'none';
             }
         });
     </script>
