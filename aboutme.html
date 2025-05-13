@@ -32,6 +32,11 @@
             overflow-x: hidden;
         }
 
+        /* 数字使用系统默认字体 */
+        .number {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
         /* 主容器 */
         .container {
             max-width: 600px;
@@ -339,19 +344,19 @@
             <div class="product-item">
                 <div class="product-name">Lay-MACD指标推送</div>
                 <div class="product-desc">每天下午3点后，浏览器、网页端推送MACD指标</div>
-                <div class="price-value">￥0/月，限免中</div>
+                <div class="price-value"><span class="number">￥0</span>/月，限免中</div>
             </div>
             
             <div class="product-item">
                 <div class="product-name">定制化交易指标一对一推送</div>
                 <div class="product-desc">每天下午3点后，根据自定义指标定制一对一推送到您的微信，例：MACD+KDJ双金叉、双均线等，支持A股/港股/美股</div>
-                <div class="price-value">￥9/月，限时折扣中</div>
+                <div class="price-value"><span class="number">￥9</span>/月，限时折扣中</div>
             </div>
 
             <div class="product-item">
                 <div class="product-name">咨询服务</div>
                 <div class="product-desc">技术类（非交易类）问题解答，问题未解决退款，时长不足按比例退款</div>
-                <div class="price-value">￥99/小时，限时折扣中</div>
+                <div class="price-value"><span class="number">￥99</span>/小时，限时折扣中</div>
             </div>
 
         </div>
@@ -368,9 +373,9 @@
                 <div class="product-desc">
                     这是一个MACD交易指标测试插件，每天3点后，从A股5k支股票中，过滤出符合MACD金叉指标的股票，过滤条件是同时满足：<br><br>
 
-                    1. 市值 > 200亿<br>
-                    2. MACD 日K金叉<br>
-                    3. 当前价格 > MA5 && 当前价格 > MA10<br><br>
+                    <span class="number">1</span>. 市值 > <span class="number">200</span>亿<br>
+                    <span class="number">2</span>. MACD 日K金叉<br>
+                    <span class="number">3</span>. 当前价格 > MA<span class="number">5</span> && 当前价格 > MA<span class="number">10</span><br><br>
 
                     限时免费
                 </div>
