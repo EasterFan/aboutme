@@ -312,11 +312,6 @@
                     <div class="link-text">X / Twitter</div>
                 </a>
 
-                <div class="link-item" id="price-btn">
-                    <div class="link-icon">💰</div>
-                    <div class="link-text">Price</div>
-                </div>
-
                 <div class="link-item" id="works-btn">
                     <div class="link-icon">🖥️</div>
                     <div class="link-text">我的作品</div>
@@ -332,6 +327,11 @@
                     <div class="link-text">Github</div>
                 </a>
 
+                <div class="link-item" id="price-btn">
+                    <div class="link-icon">💰</div>
+                    <div class="link-text">Price</div>
+                </div>
+                
                 <a href="#" class="link-item" target="_blank">
                     <div class="link-icon">📕</div>
                     <div class="link-text">小红书(直播摆摊卖货)-装修中，即将营业</div>
@@ -406,36 +406,38 @@
     </div>
 
     <script>
-        // 弹窗控制
-        const priceBtn = document.getElementById('price-btn');
-        const worksBtn = document.getElementById('works-btn');
-        const priceModal = document.getElementById('price-modal');
-        const worksModal = document.getElementById('works-modal');
-        const closeBtns = document.querySelectorAll('.close-btn');
+        document.addEventListener('DOMContentLoaded', function() {
+            // 弹窗控制
+            const priceBtn = document.getElementById('price-btn');
+            const worksBtn = document.getElementById('works-btn');
+            const priceModal = document.getElementById('price-modal');
+            const worksModal = document.getElementById('works-modal');
+            const closeBtns = document.querySelectorAll('.close-btn');
 
-        priceBtn.addEventListener('click', () => {
-            priceModal.style.display = 'flex';
-        });
-
-        worksBtn.addEventListener('click', () => {
-            worksModal.style.display = 'flex';
-        });
-
-        closeBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                priceModal.style.display = 'none';
-                worksModal.style.display = 'none';
+            priceBtn.addEventListener('click', () => {
+                priceModal.style.display = 'flex';
             });
-        });
 
-        // 点击模态框外部关闭
-        window.addEventListener('click', (e) => {
-            if (e.target === priceModal) {
-                priceModal.style.display = 'none';
-            }
-            if (e.target === worksModal) {
-                worksModal.style.display = 'none';
-            }
+            worksBtn.addEventListener('click', () => {
+                worksModal.style.display = 'flex';
+            });
+
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    priceModal.style.display = 'none';
+                    worksModal.style.display = 'none';
+                });
+            });
+
+            // 点击模态框外部关闭
+            window.addEventListener('click', (e) => {
+                if (e.target === priceModal) {
+                    priceModal.style.display = 'none';
+                }
+                if (e.target === worksModal) {
+                    worksModal.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
