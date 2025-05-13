@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ieasterfan 的个人主页</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Caveat&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #2d2d2d;
+            --bg-color: #fff9f0;
+            --highlight: #ff6b6b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gochi Hand', cursive;
+            background: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: radial-gradient(circle, #e0e0e0 1px, rgba(0,0,0,0) 1px);
+            background-size: 20px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 睡觉的小人背景 */
+        .sleeping-person {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 150px;
+            height: 150px;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .sleeping-person {
+                width: 100px;
+                height: 100px;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 手绘元素样式 */
+        .hand-drawn {
+            border: 3px solid var(--main-color);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            background: white;
+            box-shadow: 0 0 2px rgba(0,0,0,0.2);
+        }
+
+        /* 头像区域 */
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--main-color);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: white;
+            background-image: linear-gradient(var(--main-color) 2px, transparent 2px),
+                            linear-gradient(90deg, var(--main-color) 2px, transparent 2px);
+            background-size: 20px 20px;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            color: var(--main-color);
+        }
+
+        .bio {
+            font-size: 18px;
+            color: #555;
+            margin: 10px 0 0;
+        }
+
+        /* 链接按钮 */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: white;
+            border: 2px dashed var(--main-color);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--main-color);
+            cursor: pointer;
+        }
+
+        .link-item:hover {
+            transform: rotate(-1deg) scale(1.02);
+            border-style: solid;
+            background: #fff3e6;
+        }
+
+        .link-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .link-text {
+            flex: 1;
+            font-size: 16px;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid var(--main-color);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalAppear 0.3s ease-out;
+        }
+
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-title {
+            margin-top: 0;
+            color: var(--highlight);
+        }
+
+        .price-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .price-desc {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .price-value {
+            color: var(--highlight);
+            font-size: 20px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .hand-drawn {
+                padding: 15px;
+            }
+            
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .bio {
+                font-size: 16px;
+            }
+            
+            .link-item {
+                padding: 10px 15px;
+            }
+            
+            .link-text {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 睡觉的小人 SVG -->
+    <svg class="sleeping-person" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 床 -->
+        <rect x="20" y="120" width="160" height="30" fill="#f5e6d8" stroke="#2d2d2d" stroke-width="2" rx="5"/>
+        <!-- 枕头 -->
+        <rect x="40" y="110" width="40" height="20" fill="#e8c4c4" stroke="#2d2d2d" stroke-width="2" rx="5"/>
+        <!-- 被子 -->
+        <path d="M60 120 Q100 100 140 120 L140 150 L60 150 Z" fill="#ffd6d6" stroke="#2d2d2d" stroke-width="2"/>
+        <!-- 小人头部 -->
+        <circle cx="100" cy="90" r="20" fill="#ffecb3" stroke="#2d2d2d" stroke-width="2"/>
+        <!-- 眼睛 (闭着的) -->
+        <path d="M90 90 Q95 95 100 90 Q105 95 110 90" fill="none" stroke="#2d2d2d" stroke-width="2"/>
+        <!-- 嘴巴 (睡觉的Zzz) -->
+        <text x="100" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#2d2d2d">Z z z</text>
+        <!-- 身体 -->
+        <rect x="80" y="110" width="40" height="30" fill="#ffecb3" stroke="#2d2d2d" stroke-width="2" rx="5"/>
+    </svg>
+
+    <div class="container">
+        <!-- 个人信息 -->
+        <div class="hand-drawn profile">
+            <div class="avatar">
+                <!-- 替换为您的头像 -->
+                <img src="https://via.placeholder.com/120" alt="头像">
+            </div>
+            <h1>ieasterfan</h1>
+            <p class="bio">开发者 | 交易数据分析 | 内容创作者</p>
+        </div>
+
+        <!-- 社交链接 -->
+        <div class="hand-drawn">
+            <div class="links">
+                <a href="https://x.com/ieasterfan" class="link-item" target="_blank">
+                    <div class="link-icon">𝕏</div>
+                    <div class="link-text">X / Twitter</div>
+                </a>
+                
+                <div class="link-item" id="price-btn">
+                    <div class="link-icon">💰</div>
+                    <div class="link-text">Price</div>
+                </div>
+                
+                <div class="link-item" id="work-btn">
+                    <div class="link-icon">🤝</div>
+                    <div class="link-text">Work With Me</div>
+                </div>
+                
+                <a href="http://layhub.top" class="link-item" target="_blank">
+                    <div class="link-icon">🖥️</div>
+                    <div class="link-text">MACD网页版</div>
+                </a>
+                
+                <a href="https://chromewebstore.google.com/detail/lay/fjfeakhnkfdhdlfebhcpggknkjoleaog?utm_source=item-share-x" class="link-item" target="_blank">
+                    <div class="link-icon">🔌</div>
+                    <div class="link-text">MACD谷歌浏览器插件版</div>
+                </a>
+                
+                <a href="https://blog.layhub.top/" class="link-item" target="_blank">
+                    <div class="link-icon">📝</div>
+                    <div class="link-text">Blog</div>
+                </a>
+                
+                <a href="https://github.com/easterfan" class="link-item" target="_blank">
+                    <div class="link-icon">💻</div>
+                    <div class="link-text">Github</div>
+                </a>
+                
+                <a href="https://github.com/easterfan" class="link-item" target="_blank">
+                    <div class="link-icon">📕</div>
+                    <div class="link-text">小红书(直播摆摊卖货)</div>
+                </a>
+                
+                <a href="https://github.com/easterfan" class="link-item" target="_blank">
+                    <div class="link-icon">📺</div>
+                    <div class="link-text">Bilibili</div>
+                </a>
+                
+                <a href="https://github.com/easterfan" class="link-item" target="_blank">
+                    <div class="link-icon">▶️</div>
+                    <div class="link-text">Youtube</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Price 弹窗 -->
+    <div id="price-modal" class="modal">
+        <div class="modal-content hand-drawn">
+            <button class="close-btn">&times;</button>
+            <h2 class="modal-title">我的服务定价</h2>
+            
+            <div class="price-item">
+                <div class="price-name">MACD指标推送</div>
+                <div class="price-desc">实时推送MACD指标变化，帮助您把握交易时机</div>
+                <div class="price-value">限时免费</div>
+            </div>
+            
+            <div class="price-item">
+                <div class="price-name">A股/港股/美股定制化交易指标编写</div>
+                <div class="price-desc">根据您的交易策略定制专属技术指标</div>
+                <div class="price-value">价格待定 (根据需求评估)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Work With Me 弹窗 -->
+    <div id="work-modal" class="modal">
+        <div class="modal-content hand-drawn">
+            <button class="close-btn">&times;</button>
+            <h2 class="modal-title">Work With Me</h2>
+            <p>我在X上公开了25年的交易数据，用于测试MACD指标，如果你对这件事感兴趣，请加入我</p>
+            <p style="margin-top: 20px;">
+                <a href="https://x.com/ieasterfan" target="_blank" style="color: var(--highlight); text-decoration: underline;">前往X查看详情 →</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 弹窗控制
+        const priceBtn = document.getElementById('price-btn');
+        const workBtn = document.getElementById('work-btn');
+        const priceModal = document.getElementById('price-modal');
+        const workModal = document.getElementById('work-modal');
+        const closeBtns = document.querySelectorAll('.close-btn');
+
+        priceBtn.addEventListener('click', () => {
+            priceModal.style.display = 'flex';
+        });
+
+        workBtn.addEventListener('click', () => {
+            workModal.style.display = 'flex';
+        });
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                priceModal.style.display = 'none';
+                workModal.style.display = 'none';
+            });
+        });
+
+        // 点击模态框外部关闭
+        window.addEventListener('click', (e) => {
+            if (e.target === priceModal) {
+                priceModal.style.display = 'none';
+            }
+            if (e.target === workModal) {
+                workModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
